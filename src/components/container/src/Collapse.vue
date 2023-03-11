@@ -11,6 +11,12 @@ const show = ref<boolean>(true);
 const arrowStyle = computed((): CSSProperties => {
     return {
         transform: show.value ? "rotate(180deg)" : "rotate(0deg)",
+        backgroundColor: "var(--el-color-primary)",
+        color: "var(--el-color-white)",
+        borderRadius: "50%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
     };
 });
 const changeShow = () => {
