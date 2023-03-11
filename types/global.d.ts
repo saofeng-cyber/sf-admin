@@ -11,3 +11,9 @@ declare module "*.vue" {
 }
 
 declare module "vue-bmap-gl";
+declare module "@fullcalendar/daygrid";
+declare module "@fullcalendar/interaction";
+declare module "@fullcalendar/timegrid";
+declare module "dropzone";
+declare module "photoswipe/lightbox";
+declare module "sweetalert2";

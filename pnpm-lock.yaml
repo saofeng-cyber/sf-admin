@@ -2,10 +2,16 @@ lockfileVersion: 5.4
 
 specifiers:
   '@element-plus/icons-vue': ^2.1.0
+  '@fullcalendar/core': ^6.1.4
+  '@fullcalendar/daygrid': ^6.1.4
+  '@fullcalendar/interaction': ^6.1.4
+  '@fullcalendar/timegrid': ^6.1.4
+  '@fullcalendar/vue3': ^6.1.4
   '@iconify/vue': ^4.0.2
   '@logicflow/core': ^1.1.31
   '@logicflow/extension': ^1.1.31
   '@types/crypto-js': ^4.1.1
+  '@types/dropzone': ^5.7.4
   '@types/js-cookie': ^3.0.2
   '@types/lodash-es': ^4.17.6
   '@types/mockjs': ^1.0.7
@@ -25,10 +31,12 @@ specifiers:
   '@wangeditor/editor-for-vue': ^5.1.12
   autoprefixer: ^10.4.13
   axios: ^1.2.2
+  chart.js: ^4.2.1
   conventional-changelog: ^3.1.25
   conventional-changelog-cli: ^2.2.2
   core-js: ^3.29.0
   crypto-js: ^4.1.1
+  dropzone: 6.0.0-beta.2
   echarts: ^5.4.1
   element-plus: ^2.2.36
   eslint: ^8.33.0
@@ -41,6 +49,7 @@ specifiers:
   moment: ^2.29.4
   npm-run-all: ^4.1.5
   nprogress: ^0.2.0
+  photoswipe: ^5.3.6
   pinia: 2.0.28
   postcss: ^8.4.21
   prettier: ^2.8.4
@@ -48,7 +57,9 @@ specifiers:
   rollup: ^3.16.0
   sass: ^1.57.1
   screenfull: ^6.0.2
+  simple-datatables: ^7.1.2
   sortablejs: ^1.15.0
+  sweetalert2: ^11.7.3
   tailwindcss: ^3.2.4
   terser: ^5.16.4
   typescript: ~4.7.4
@@ -68,14 +79,21 @@ specifiers:
 
 dependencies:
   '@element-plus/icons-vue': registry.npmmirror.com/@element-plus/icons-vue/2.1.0_vue@3.2.47
+  '@fullcalendar/core': registry.npmmirror.com/@fullcalendar/core/6.1.4
+  '@fullcalendar/daygrid': registry.npmmirror.com/@fullcalendar/daygrid/6.1.4_@fullcalendar+core@6.1.4
+  '@fullcalendar/interaction': registry.npmmirror.com/@fullcalendar/interaction/6.1.4_@fullcalendar+core@6.1.4
+  '@fullcalendar/timegrid': registry.npmmirror.com/@fullcalendar/timegrid/6.1.4_@fullcalendar+core@6.1.4
+  '@fullcalendar/vue3': registry.npmmirror.com/@fullcalendar/vue3/6.1.4_mwkae5zbusy4i6bauih3ulwz6y
   '@logicflow/core': registry.npmmirror.com/@logicflow/core/1.1.31
   '@logicflow/extension': registry.npmmirror.com/@logicflow/extension/1.1.31
   '@vueuse/core': registry.npmmirror.com/@vueuse/core/9.13.0_vue@3.2.47
   '@wangeditor/editor': registry.npmmirror.com/@wangeditor/editor/5.1.23
   '@wangeditor/editor-for-vue': registry.npmmirror.com/@wangeditor/editor-for-vue/5.1.12_77ywgcaevzgjoxs6yixvgo4fve
   axios: registry.npmmirror.com/axios/1.3.3
+  chart.js: registry.npmmirror.com/chart.js/4.2.1
   core-js: registry.npmmirror.com/core-js/3.29.0
   crypto-js: registry.npmmirror.com/crypto-js/4.1.1
+  dropzone: registry.npmmirror.com/dropzone/6.0.0-beta.2
   echarts: registry.npmmirror.com/echarts/5.4.1
   element-plus: registry.npmmirror.com/element-plus/2.2.36_vue@3.2.47
   js-cookie: registry.npmmirror.com/js-cookie/3.0.1
@@ -83,10 +101,13 @@ dependencies:
   mockjs: registry.npmmirror.com/mockjs/1.1.0
   moment: registry.npmmirror.com/moment/2.29.4
   nprogress: registry.npmmirror.com/nprogress/0.2.0
+  photoswipe: registry.npmmirror.com/photoswipe/5.3.6
   pinia: registry.npmmirror.com/pinia/2.0.28_5yi2kxxaqg74pgvs6b75qdtvru
   print-js: registry.npmmirror.com/print-js/1.6.0
   screenfull: registry.npmmirror.com/screenfull/6.0.2
+  simple-datatables: registry.npmmirror.com/simple-datatables/7.1.2
   sortablejs: registry.npmmirror.com/sortablejs/1.15.0
+  sweetalert2: registry.npmmirror.com/sweetalert2/11.7.3
   vditor: registry.npmmirror.com/vditor/3.9.0
   vue: registry.npmmirror.com/vue/3.2.47
   vue-bmap-gl: registry.npmmirror.com/vue-bmap-gl/1.0.4_vue@3.2.47
@@ -98,6 +119,7 @@ dependencies:
 devDependencies:
   '@iconify/vue': registry.npmmirror.com/@iconify/vue/4.1.0_vue@3.2.47
   '@types/crypto-js': registry.npmmirror.com/@types/crypto-js/4.1.1
+  '@types/dropzone': registry.npmmirror.com/@types/dropzone/5.7.4
   '@types/js-cookie': registry.npmmirror.com/@types/js-cookie/3.0.3
   '@types/lodash-es': registry.npmmirror.com/@types/lodash-es/4.17.6
   '@types/mockjs': registry.npmmirror.com/@types/mockjs/1.0.7
@@ -811,6 +833,61 @@ packages:
       '@floating-ui/core': registry.npmmirror.com/@floating-ui/core/1.2.1
     dev: false
 
+  registry.npmmirror.com/@fullcalendar/core/6.1.4:
+    resolution: {integrity: sha512-ZDD0Owv0LezAk14nsRNaOc9nbowItGmT0mnjOhEw+L6B8P5eads8yYaNA9itn70MWoOjiAG8xqD7Yk1iJGxqgQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@fullcalendar/core/-/core-6.1.4.tgz}
+    name: '@fullcalendar/core'
+    version: 6.1.4
+    dependencies:
+      preact: registry.npmmirror.com/preact/10.12.1
+    dev: false
+
+  registry.npmmirror.com/@fullcalendar/daygrid/6.1.4_@fullcalendar+core@6.1.4:
+    resolution: {integrity: sha512-X0QWEiA/hT8GYiQzmXt9DlZTWaQbNtBHBXGtaMNcVXbGHDCzLoWTHrde/jABGfr/i2+d9sLUO4oTtwz2HVpNtQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@fullcalendar/daygrid/-/daygrid-6.1.4.tgz}
+    id: registry.npmmirror.com/@fullcalendar/daygrid/6.1.4
+    name: '@fullcalendar/daygrid'
+    version: 6.1.4
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.4
+    dependencies:
+      '@fullcalendar/core': registry.npmmirror.com/@fullcalendar/core/6.1.4
+    dev: false
+
+  registry.npmmirror.com/@fullcalendar/interaction/6.1.4_@fullcalendar+core@6.1.4:
+    resolution: {integrity: sha512-69G2B61bPiHy7VyTDiwU9l8yRHPUK9XxNxjIdm3N0nvWR6BaUIBDQe8dIWht+IZUf9qirFhnfcLWkRI0fOTWtw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@fullcalendar/interaction/-/interaction-6.1.4.tgz}
+    id: registry.npmmirror.com/@fullcalendar/interaction/6.1.4
+    name: '@fullcalendar/interaction'
+    version: 6.1.4
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.4
+    dependencies:
+      '@fullcalendar/core': registry.npmmirror.com/@fullcalendar/core/6.1.4
+    dev: false
+
+  registry.npmmirror.com/@fullcalendar/timegrid/6.1.4_@fullcalendar+core@6.1.4:
+    resolution: {integrity: sha512-B2/levLKW0CyDQru75JeuASpCZml5W8sINCwVTstxxhjKmNBG3F5qvSX12DDrTdga/ySYObNNP1pKDwavKk/JQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@fullcalendar/timegrid/-/timegrid-6.1.4.tgz}
+    id: registry.npmmirror.com/@fullcalendar/timegrid/6.1.4
+    name: '@fullcalendar/timegrid'
+    version: 6.1.4
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.4
+    dependencies:
+      '@fullcalendar/core': registry.npmmirror.com/@fullcalendar/core/6.1.4
+      '@fullcalendar/daygrid': registry.npmmirror.com/@fullcalendar/daygrid/6.1.4_@fullcalendar+core@6.1.4
+    dev: false
+
+  registry.npmmirror.com/@fullcalendar/vue3/6.1.4_mwkae5zbusy4i6bauih3ulwz6y:
+    resolution: {integrity: sha512-5xuGFFRDSD5CF1RGx7GcIrIAi/qAFsKmSN3ABUtocTMZlC0s2JucDa7Vur1tcoq1tbj0WyHhGhxTAUN2mpDq0A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@fullcalendar/vue3/-/vue3-6.1.4.tgz}
+    id: registry.npmmirror.com/@fullcalendar/vue3/6.1.4
+    name: '@fullcalendar/vue3'
+    version: 6.1.4
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.4
+      vue: ^3.0.11
+    dependencies:
+      '@fullcalendar/core': registry.npmmirror.com/@fullcalendar/core/6.1.4
+      vue: registry.npmmirror.com/vue/3.2.47
+    dev: false
+
   registry.npmmirror.com/@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@humanwhocodes/config-array/-/config-array-0.11.8.tgz}
     name: '@humanwhocodes/config-array'
@@ -969,6 +1046,12 @@ packages:
       '@jridgewell/sourcemap-codec': registry.npmmirror.com/@jridgewell/sourcemap-codec/1.4.14
     dev: true
 
+  registry.npmmirror.com/@kurkle/color/0.3.2:
+    resolution: {integrity: sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@kurkle/color/-/color-0.3.2.tgz}
+    name: '@kurkle/color'
+    version: 0.3.2
+    dev: false
+
   registry.npmmirror.com/@logicflow/core/1.1.31:
     resolution: {integrity: sha512-TQYJoxhqSzWBvw/NkI5hNZ8WkfS7JDLrvp56EU/OYo6Nbusj2n8/ya8XaMM50+GXqnp6+38t3RAGCC9Dk9cmhA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@logicflow/core/-/core-1.1.31.tgz}
     name: '@logicflow/core'
@@ -1034,6 +1117,12 @@ packages:
       rollup: registry.npmmirror.com/rollup/3.17.1
     dev: true
 
+  registry.npmmirror.com/@swc/helpers/0.2.14:
+    resolution: {integrity: sha512-wpCQMhf5p5GhNg2MmGKXzUNwxe7zRiCsmqYsamez2beP7mKPCSiu+BjZcdN95yYSzO857kr0VfQewmGpS77nqA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@swc/helpers/-/helpers-0.2.14.tgz}
+    name: '@swc/helpers'
+    version: 0.2.14
+    dev: false
+
   registry.npmmirror.com/@sxzz/popperjs-es/2.11.7:
     resolution: {integrity: sha512-Ccy0NlLkzr0Ex2FKvh2X+OyERHXJ88XJ1MXtsI9y9fGexlaXaVTPzBCRBwIxFkORuOb+uBqeu+RqnpgYTEZRUQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@sxzz/popperjs-es/-/popperjs-es-2.11.7.tgz}
     name: '@sxzz/popperjs-es'
@@ -1059,6 +1148,14 @@ packages:
     version: 4.1.1
     dev: true
 
+  registry.npmmirror.com/@types/dropzone/5.7.4:
+    resolution: {integrity: sha512-9kLJ2YAmVRWYrHvDoa95pQzHF0HUMKcznsS7FM1Mht5Yieec+HMB6Ybfm+ocvLjvFCvgyYGFTp4nzNFxhZmo3g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/dropzone/-/dropzone-5.7.4.tgz}
+    name: '@types/dropzone'
+    version: 5.7.4
+    dependencies:
+      '@types/jquery': registry.npmmirror.com/@types/jquery/3.5.16
+    dev: true
+
   registry.npmmirror.com/@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/estree/-/estree-1.0.0.tgz}
     name: '@types/estree'
@@ -1070,6 +1167,14 @@ packages:
     name: '@types/event-emitter'
     version: 0.3.3
     dev: false
+
+  registry.npmmirror.com/@types/jquery/3.5.16:
+    resolution: {integrity: sha512-bsI7y4ZgeMkmpG9OM710RRzDFp+w4P1RGiIt30C1mSBT+ExCleeh4HObwgArnDFELmRrOpXgSYN9VF1hj+f1lw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/jquery/-/jquery-3.5.16.tgz}
+    name: '@types/jquery'
+    version: 3.5.16
+    dependencies:
+      '@types/sizzle': registry.npmmirror.com/@types/sizzle/2.3.3
+    dev: true
 
   registry.npmmirror.com/@types/js-cookie/3.0.3:
     resolution: {integrity: sha512-Xe7IImK09HP1sv2M/aI+48a20VX+TdRJucfq4vfRVy6nWN8PYPOEnlMRSgxJAgYQIXJVL8dZ4/ilAM7dWNaOww==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/js-cookie/-/js-cookie-3.0.3.tgz}
@@ -1135,6 +1240,12 @@ packages:
     resolution: {integrity: sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/semver/-/semver-7.3.13.tgz}
     name: '@types/semver'
     version: 7.3.13
+    dev: true
+
+  registry.npmmirror.com/@types/sizzle/2.3.3:
+    resolution: {integrity: sha512-JYM8x9EGF163bEyhdJBpR2QX1R5naCJHC8ucJylJ3w9/CVBaskdQ8WqBf8MmQrd1kRvp/a4TS8HJ+bxzR7ZJYQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/sizzle/-/sizzle-2.3.3.tgz}
+    name: '@types/sizzle'
+    version: 2.3.3
     dev: true
 
   registry.npmmirror.com/@types/sortablejs/1.15.0:
@@ -2356,6 +2467,15 @@ packages:
       supports-color: registry.npmmirror.com/supports-color/7.2.0
     dev: true
 
+  registry.npmmirror.com/chart.js/4.2.1:
+    resolution: {integrity: sha512-6YbpQ0nt3NovAgOzbkSSeeAQu/3za1319dPUQTXn9WcOpywM8rGKxJHrhS8V8xEkAlk8YhEfjbuAPfUyp6jIsw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/chart.js/-/chart.js-4.2.1.tgz}
+    name: chart.js
+    version: 4.2.1
+    engines: {pnpm: ^7.0.0}
+    dependencies:
+      '@kurkle/color': registry.npmmirror.com/@kurkle/color/0.3.2
+    dev: false
+
   registry.npmmirror.com/chokidar/3.5.3:
     resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/chokidar/-/chokidar-3.5.3.tgz}
     name: chokidar
@@ -2979,6 +3099,12 @@ packages:
     version: 1.2.2
     dev: true
 
+  registry.npmmirror.com/diff-dom/5.0.3:
+    resolution: {integrity: sha512-/gOPP7yBrZpaVW96L4Iye6nmKcd884WwibSj66Vqo8vx5bMxXsAL0FOomTDhRsR1Mg9an0PPXWKYM8jxiYwcIQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/diff-dom/-/diff-dom-5.0.3.tgz}
+    name: diff-dom
+    version: 5.0.3
+    dev: false
+
   registry.npmmirror.com/diff-match-patch/1.0.5:
     resolution: {integrity: sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/diff-match-patch/-/diff-match-patch-1.0.5.tgz}
     name: diff-match-patch
@@ -3097,6 +3223,15 @@ packages:
     resolution: {integrity: sha512-LN1gO7+u9xjU5oEScGFKvXhYf7Y/empUIIEAGBs1LzUq/rg5duiDrkuH5A2lQGd5jfMOb9X9usDa2oVXwJ0U/Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/downloadjs/-/downloadjs-1.4.7.tgz}
     name: downloadjs
     version: 1.4.7
+    dev: false
+
+  registry.npmmirror.com/dropzone/6.0.0-beta.2:
+    resolution: {integrity: sha512-k44yLuFFhRk53M8zP71FaaNzJYIzr99SKmpbO/oZKNslDjNXQsBTdfLs+iONd0U0L94zzlFzRnFdqbLcs7h9fQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/dropzone/-/dropzone-6.0.0-beta.2.tgz}
+    name: dropzone
+    version: 6.0.0-beta.2
+    dependencies:
+      '@swc/helpers': registry.npmmirror.com/@swc/helpers/0.2.14
+      just-extend: registry.npmmirror.com/just-extend/5.1.1
     dev: false
 
   registry.npmmirror.com/echarts/5.4.1:
@@ -4825,6 +4960,12 @@ packages:
     engines: {'0': node >= 0.2.0}
     dev: true
 
+  registry.npmmirror.com/just-extend/5.1.1:
+    resolution: {integrity: sha512-b+z6yF1d4EOyDgylzQo5IminlUmzSeqR1hs/bzjBNjuGras4FXq/6TrzjxfN0j+TmI0ltJzTNlqXUMCniciwKQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/just-extend/-/just-extend-5.1.1.tgz}
+    name: just-extend
+    version: 5.1.1
+    dev: false
+
   registry.npmmirror.com/kind-of/3.2.2:
     resolution: {integrity: sha512-NOW9QQXMoZGg/oqnVNoNTTIFEIid1627WCffUBJEdMxYApq7mNE7CpzucIPc+ZQg25Phej7IJSmX3hO+oblOtQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/kind-of/-/kind-of-3.2.2.tgz}
     name: kind-of
@@ -5719,6 +5860,13 @@ packages:
     version: 1.1.0
     dev: true
 
+  registry.npmmirror.com/photoswipe/5.3.6:
+    resolution: {integrity: sha512-v7e8iMfaPUujTACYsK5HBCCtFoW9n2dMZmjIlbvFS2oSpTQmPrfc3PrWnGx8OGY3jNOKho8JC8L277+m+9ag9Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/photoswipe/-/photoswipe-5.3.6.tgz}
+    name: photoswipe
+    version: 5.3.6
+    engines: {node: '>= 0.12.0'}
+    dev: false
+
   registry.npmmirror.com/picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/picocolors/-/picocolors-1.0.0.tgz}
     name: picocolors
@@ -6419,6 +6567,15 @@ packages:
       object-inspect: registry.npmmirror.com/object-inspect/1.12.3
     dev: true
 
+  registry.npmmirror.com/simple-datatables/7.1.2:
+    resolution: {integrity: sha512-7YW8oBGx+Jj75FSLM/WBe5kZVqMh7NHgBYfttZ79+wRJoL+miz/flS4NHGz0LzcM822tSEccweyfcAlb5bgWgw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/simple-datatables/-/simple-datatables-7.1.2.tgz}
+    name: simple-datatables
+    version: 7.1.2
+    dependencies:
+      dayjs: registry.npmmirror.com/dayjs/1.11.7
+      diff-dom: registry.npmmirror.com/diff-dom/5.0.3
+    dev: false
+
   registry.npmmirror.com/slash/3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/slash/-/slash-3.0.0.tgz}
     name: slash
@@ -6838,6 +6995,12 @@ packages:
       picocolors: registry.npmmirror.com/picocolors/1.0.0
       stable: registry.npmmirror.com/stable/0.1.8
     dev: true
+
+  registry.npmmirror.com/sweetalert2/11.7.3:
+    resolution: {integrity: sha512-fUN/fyVSBZNtY4Rr/Qtxn7tNNnlRAbUhQxTQ9uOo0xVMIHBmqq4/9pau5N9dB2pvkB353XL/ywRAycscLoYU3w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/sweetalert2/-/sweetalert2-11.7.3.tgz}
+    name: sweetalert2
+    version: 11.7.3
+    dev: false
 
   registry.npmmirror.com/tailwindcss/3.2.7:
     resolution: {integrity: sha512-B6DLqJzc21x7wntlH/GsZwEXTBttVSl1FtCzC8WP4oBc/NKef7kaax5jeihkkCEWc831/5NDJ9gRNDK6NEioQQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tailwindcss/-/tailwindcss-3.2.7.tgz}
