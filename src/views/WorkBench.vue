@@ -397,26 +397,22 @@ const showAlertDanger = () => {
                     >
                 </div>
             </template>
-            <el-row>
-                <el-button @click="showAlertDefault">
-                    showAlertDefault
-                </el-button>
+            <div class="flex flex-wrap gap-[2px] justify-center items-center">
+                <el-button @click="showAlertDefault"> Default </el-button>
+                <el-button type="info" @click="showAlertInfo"> Info </el-button>
                 <el-button type="primary" @click="showAlertPrimart">
-                    showAlertPrimary
+                    Primary
                 </el-button>
                 <el-button type="success" @click="showAlertSuccess">
-                    showAlertSuccess
-                </el-button>
-                <el-button type="info" @click="showAlertInfo">
-                    showAlertInfo
+                    Success
                 </el-button>
                 <el-button type="warning" @click="showAlertWarning">
-                    showAlertWarning
+                    Warning
                 </el-button>
                 <el-button type="danger" @click="showAlertDanger">
-                    showAlertDanger
+                    Danger
                 </el-button>
-            </el-row>
+            </div>
         </el-card>
     </div>
 </template>
