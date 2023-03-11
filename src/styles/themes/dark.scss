@@ -1,0 +1,12 @@
+// only scss variables
+
+// $--colors-dark: (
+//   "primary": (
+//     "base": #e76f24,
+//   )
+// );
+
+// @forward "element-plus/theme-chalk/src/dark/var.scss" with (
+//   $colors: $--colors-dark
+// );
+@forward "element-plus/theme-chalk/src/dark/var.scss";

@@ -1,0 +1,34 @@
+{
+    "compileOnSave": true,
+    "extends": "@vue/tsconfig/tsconfig.web.json",
+    "include": ["src/**/*", "src/**/*.vue", "mock/**/*", "types/**/*.d.ts", "custom/*.d.ts"],
+    "exclude": ["node_modules", "dist", "**/*.js"],
+    "compilerOptions": {
+        "baseUrl": ".",
+        "importHelpers": true,
+        "strict": true,
+        "alwaysStrict": true,
+        "noEmit": false,
+        "noImplicitAny": true,
+        "jsx": "preserve",
+        "removeComments": true, // 移出注释
+        "esModuleInterop": true, // 允许export=导出，由import from 导入
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "types": [
+            "vite/client",
+            "element-plus/global",
+            "vite-plugin-svg-icons/client",
+            "sortablejs"
+        ]
+    },
+    "references": [
+        {
+            "path": "./tsconfig.config.json"
+        }
+    ]
+}

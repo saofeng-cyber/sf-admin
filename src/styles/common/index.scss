@@ -1,0 +1,23 @@
+$commonBg: #201e1e4c;
+$commonText: #ffffff4c;
+$commonBorder: #bab2b2;
+$toolbarBg: #fff;
+$vditorTextColor: #bab2b2;
+$toolBarBg: #333333;
+$toolText: #ffffff;
+
+html.dark {
+    .about,
+    .map {
+        background-color: $commonBg;
+        border: 1px solid #302e2e;
+    }
+
+    .vditor-reset {
+        color: #d1d5da;
+    }
+
+    --w-e-toolbar-bg-color: #18181c;
+    --w-e-textarea-bg-color: #18181c;
+    --w-e-textarea-color: #ffffff;
+}

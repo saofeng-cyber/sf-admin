@@ -1,0 +1,23 @@
+@import "./base.css";
+@import "./font/iconfont.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .theme-icon-bg {
+    @apply hover:bg-[var(--el-color-primary-light-9)] h-full;
+  }
+}
+
+/* 灰色模式 */
+.html-grey {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+/* 色弱模式 */
+.html-weakness {
+  -webkit-filter: invert(80%);
+  filter: invert(80%);
+}
