@@ -2,7 +2,7 @@
 import { Refresh, Setting, Operation, Warning } from "@element-plus/icons-vue";
 import type { CheckboxValueType } from "element-plus";
 import sortable, { type SortableEvent } from "sortablejs";
-import { cloneDeep } from "lodash-es";
+// import { cloneDeep } from "lodash-es";
 interface User {
     name: string;
     address: string;
@@ -96,7 +96,7 @@ const handleCheckOrderChange = (val: CheckboxValueType) => {
 const handleCheckSelectChange = (val: CheckboxValueType) => {
     checkSelect.value = val as boolean;
 };
-const tableColumnsRaw = cloneDeep(tableColumns.value);
+const tableColumnsRaw = toRaw(tableColumns.value);
 const handleCheckAllChange = (val: CheckboxValueType) => {
     checkedCities.value = val ? tabColumnArr : [];
     tableColumns.value = tableColumnsRaw.filter((item: TabColumn) =>
