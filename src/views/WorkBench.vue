@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Chart from "chart.js/auto";
+// import { Delete } from "@element-plus/icons-vue";
 import FullCalendar from "@fullcalendar/vue3";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
@@ -104,10 +105,19 @@ onMounted(() => {
             },
         },
     });
-
-    Dropzone.autoDiscover = false;
-
-    const myDropzone = new Dropzone("#my-dropzone");
+    const previewNode = document.getElementById("template") as HTMLElement;
+    previewNode.id = "";
+    const previewTemplate = (previewNode?.parentNode as HTMLElement).innerHTML;
+    const myDropzone = new Dropzone("#my-dropzone", {
+        url: "https://httpbin.org/post",
+        thumbnailWidth: 80,
+        thumbnailHeight: 80,
+        parallelUploads: 20,
+        previewTemplate: previewTemplate,
+        autoQueue: false, // Make sure the files aren't queued until manually added
+        previewsContainer: "#dropzone-list", // Define the container to display the previews
+        clickable: true, // Define the element that should be used as click trigger to select files.
+    });
     myDropzone.on("addedfile", (file: any) => {
         console.log(`File added: ${file.name}`);
     });
@@ -331,14 +341,45 @@ const showAlertDanger = () => {
                     >
                 </div>
             </template>
-            <div class="dropzone-container">
-                <h1 class="svelte-12uhhij">Try it out!</h1>
-                <form action="/target" class="dropzone" id="my-dropzone"></form>
-                <p class="comment text-center text-gray-400">
-                    This is just a demo Dropzone.
-                    <br />
-                    Dropped files are <strong>not</strong> actually uploaded.
-                </p>
+            <div id="my-dropzone">
+                <div class="dz-preview dz-file-preview">
+                    <div class="dz-default dz-message">
+                        <el-button class="dz-button">
+                            Drop files here to upload
+                        </el-button>
+                    </div>
+                    <div id="dropzone-list">
+                        <div id="template" class="flex items-center mb-3">
+                            <div>
+                                <span class="preview">
+                                    <img
+                                        class="rounded-xl shadow"
+                                        data-dz-thumbnail
+                                    />
+                                </span>
+                            </div>
+                            <div class="dz-filename flex-1 mx-[12px]">
+                                <h4 class="text-[#32325d]" data-dz-name></h4>
+                                <p
+                                    data-dz-size
+                                    class="small text-muted mb-0 text-[#8898AA]"
+                                ></p>
+                            </div>
+                            <div class="dz-progress"></div>
+                            <div class="dz-error-message"></div>
+                            <div class="dz-success-mark"></div>
+                            <div class="dz-error-mark"></div>
+                            <!-- <div class="dz-remove" data-dz-remove>
+                                <el-button
+                                    type="danger"
+                                    :icon="Delete"
+                                    circle
+                                    data-dz-remove="true"
+                                />
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </el-card>
         <el-divider />
@@ -388,12 +429,12 @@ const showAlertDanger = () => {
         <el-card>
             <template #header>
                 <div class="card-header flex justify-between">
-                    <h3>VueSweetalert2</h3>
+                    <h3>Sweetalert2</h3>
                     <el-link
                         type="primary"
                         href="https://sweetalert2.github.io/"
                         target="_blank"
-                        >To VueSweetalert2</el-link
+                        >To Sweetalert2</el-link
                     >
                 </div>
             </template>
@@ -417,23 +458,21 @@ const showAlertDanger = () => {
     </div>
 </template>
 <style scoped lang="scss">
-.dropzone-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 240px;
-    height: 240px;
-    background-color: white;
-    border-radius: 2.5rem;
-    box-shadow: 0 0.625rem 1.25rem #0000001a;
-    .svelte-12uhhij {
-        font-size: 2.375rem;
-        font-weight: 700;
-    }
+.dz-message {
+    text-align: center;
+    padding: 32px 16px;
+    background-color: #fff;
+    border: 1px dashed #dee2e6;
+    border-radius: 0.375rem;
+    color: #8898aa;
 }
 </style>
 <style lang="scss">
+.dropzone-list {
+    .dz-success {
+        display: flex;
+    }
+}
 .datatable-active {
     & a {
         background: 0 0;
