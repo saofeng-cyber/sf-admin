@@ -10,7 +10,9 @@ import { DataTable } from "simple-datatables";
 import "simple-datatables/dist/style.css";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
-import Swal from "sweetalert2";
+import type TVueSwalInstance from "@/composables/swal";
+const $swal: TVueSwalInstance =
+    getCurrentInstance()?.appContext.app.config.globalProperties.$swal;
 const chatCanvas = ref<HTMLCanvasElement | null>(null);
 const newData = {
     headings: ["NAME", "POSITION", "OFFICE", "AGE", "STARTDATE", "SALARY"],
@@ -193,6 +195,14 @@ const INITIAL_EVENTS = [
     },
 ];
 
+const handleDateClick = (date: any) => {
+    console.log(date);
+    $swal.fire({
+        text: `The datetime is ${date.dateStr}`,
+        icon: "success",
+    });
+};
+
 const calendarOptions = reactive({
     plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin],
     initialView: "dayGridMonth",
@@ -207,11 +217,12 @@ const calendarOptions = reactive({
     selectMirror: true,
     dayMaxEvents: true,
     weekends: true,
+    dateClick: handleDateClick,
 });
 
 const showAlertDefault = () => {
-    Swal.fire("Any fool can use a computer");
-    // Swal.fire({
+    $swal.fire("Any fool can use a computer");
+    // $swal.fire({
     //     title: "Are you sure?",
     //     text: "You won't be able to revert this!",
     //     icon: "warning",
@@ -221,12 +232,12 @@ const showAlertDefault = () => {
     //     confirmButtonText: "Yes, delete it!",
     // }).then((result) => {
     //     if (result.isConfirmed) {
-    //         Swal.fire("Deleted!", "Your file has been deleted.", "success");
+    //         $swal.fire("Deleted!", "Your file has been deleted.", "success");
     //     }
     // });
 };
 const showAlertPrimart = () => {
-    Swal.fire({
+    $swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
         icon: "question",
@@ -234,7 +245,7 @@ const showAlertPrimart = () => {
     });
 };
 const showAlertSuccess = () => {
-    Swal.fire({
+    $swal.fire({
         position: "top-end",
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -247,22 +258,28 @@ const showAlertSuccess = () => {
     });
 };
 const showAlertWarning = () => {
-    Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-    }).then((result: { isConfirmed: any }) => {
-        if (result.isConfirmed) {
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        }
-    });
+    $swal
+        .fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        })
+        .then((result: { isConfirmed: any }) => {
+            if (result.isConfirmed) {
+                $swal.fire(
+                    "Deleted!",
+                    "Your file has been deleted.",
+                    "success"
+                );
+            }
+        });
 };
 const showAlertInfo = () => {
-    Swal.fire({
+    $swal.fire({
         title: "<strong>HTML <u>example</u></strong>",
         icon: "info",
         html:
@@ -279,27 +296,29 @@ const showAlertInfo = () => {
     });
 };
 const showAlertDanger = () => {
-    Swal.fire({
-        title: "Do you want to save the changes?",
-        showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: "Save",
-        denyButtonText: `Don't save`,
-    }).then((result: { isConfirmed: any; isDenied: any }) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-            Swal.fire("Saved!", "", "success");
-        } else if (result.isDenied) {
-            Swal.fire("Changes are not saved", "", "info");
-        }
-    });
+    $swal
+        .fire({
+            title: "Do you want to save the changes?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Save",
+            denyButtonText: `Don't save`,
+        })
+        .then((result: { isConfirmed: any; isDenied: any }) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                $swal.fire("Saved!", "", "success");
+            } else if (result.isDenied) {
+                $swal.fire("Changes are not saved", "", "info");
+            }
+        });
 };
 </script>
 <template>
     <div class="workPlatform">
         <el-card>
             <template #header>
-                <div class="card-header flex justify-between">
+                <div class="flex justify-between card-header">
                     <h3>Chartjs</h3>
                     <el-link
                         type="primary"
@@ -316,7 +335,7 @@ const showAlertDanger = () => {
         <el-divider />
         <el-card>
             <template #header>
-                <div class="card-header flex justify-between">
+                <div class="flex justify-between card-header">
                     <h3>Fullcalendar</h3>
                     <el-link
                         type="primary"
@@ -331,7 +350,7 @@ const showAlertDanger = () => {
         <el-divider />
         <el-card>
             <template #header>
-                <div class="card-header flex justify-between">
+                <div class="flex justify-between card-header">
                     <h3>Dropzone</h3>
                     <el-link
                         type="primary"
@@ -353,7 +372,7 @@ const showAlertDanger = () => {
                             <div>
                                 <span class="preview">
                                     <img
-                                        class="rounded-xl shadow"
+                                        class="shadow rounded-xl"
                                         data-dz-thumbnail
                                     />
                                 </span>
@@ -385,7 +404,7 @@ const showAlertDanger = () => {
         <el-divider />
         <el-card>
             <template #header>
-                <div class="card-header flex justify-between">
+                <div class="flex justify-between card-header">
                     <h3>Datatables</h3>
                     <el-link
                         type="primary"
@@ -400,7 +419,7 @@ const showAlertDanger = () => {
         <el-divider />
         <el-card>
             <template #header>
-                <div class="card-header flex justify-between">
+                <div class="flex justify-between card-header">
                     <h3>PhotoSwipe</h3>
                     <el-link
                         type="primary"
@@ -410,16 +429,16 @@ const showAlertDanger = () => {
                     >
                 </div>
             </template>
-            <div id="my-gallery" class="flex gap-4 items-center">
+            <div id="my-gallery" class="flex items-center gap-4">
                 <a
                     href="https://unsplash.com"
-                    data-pswp-src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-2500.jpg"
-                    data-pswp-width="2500"
-                    data-pswp-height="1666"
+                    data-pswp-src="https://startupstockphotos.com/wp-content/uploads/2023/01/ssp-work-tech-0001-2048x1367.jpg"
+                    data-pswp-width="250"
+                    data-pswp-height="166"
                     target="_blank"
                 >
                     <img
-                        src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-200.jpg"
+                        src="https://startupstockphotos.com/wp-content/uploads/2023/01/ssp-work-tech-0001-2048x1367.jpg"
                         alt=""
                     />
                 </a>
@@ -428,7 +447,7 @@ const showAlertDanger = () => {
         <el-divider />
         <el-card>
             <template #header>
-                <div class="card-header flex justify-between">
+                <div class="flex justify-between card-header">
                     <h3>Sweetalert2</h3>
                     <el-link
                         type="primary"

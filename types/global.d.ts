@@ -16,4 +16,3 @@ declare module "@fullcalendar/interaction";
 declare module "@fullcalendar/timegrid";
 declare module "dropzone";
 declare module "photoswipe/lightbox";
-declare module "sweetalert2";

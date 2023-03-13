@@ -15,6 +15,10 @@ import "virtual:svg-icons-register";
 // initBMapApiLoader({
 //     ak: "XAFTV4uo7lrQb83DBA7zGwBg9oNRz8GW",
 // });
+import VueSweetalert2 from "vue-sweetalert2";
+
+// If you don't need the styles, do not connect
+import "sweetalert2/dist/sweetalert2.min.css";
 
 import "@/assets/main.css";
 import "@/styles/index.scss";
@@ -28,6 +32,7 @@ app.component("IconifyVue", IconifyVue);
 app.component("SvgIcon", SvgIcon);
 app.config.globalProperties.$moment = moment;
 // app.use(VueBMap);
+app.use(VueSweetalert2);
 app.use(countTo);
 app.use(pinia);
 app.use(router);
