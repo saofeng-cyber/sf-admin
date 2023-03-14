@@ -1,12 +1,11 @@
 <script setup lang="ts">
-const basetype = ["primary", "info", "warning", "danger", "success"];
 interface InfoCardProps {
     title: string;
     value?: string | number;
     description?: string;
     icon?: string | undefined;
     prefix?: string | undefined;
-    background: string;
+    background: cardcolor;
 }
 withDefaults(defineProps<InfoCardProps>(), {
     title: "Today's Money",
@@ -23,9 +22,7 @@ withDefaults(defineProps<InfoCardProps>(), {
             <div
                 class="rounded-md w-[48px] h-[48px] shadow text-center leading-[48px] bg-center"
                 :style="{
-                    backgroundColor: basetype.includes(background)
-                        ? `var(--el-color-${background})`
-                        : background,
+                    backgroundColor: `var(--sf-${background})`,
                 }"
             >
                 <Iconify
