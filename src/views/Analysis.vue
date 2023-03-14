@@ -1,7 +1,8 @@
 <script setup lang="ts">
+// import StatisticsCard from "@/components/container/src/card/StatisticsCard.vue";
+import InfoCard from "@/components/container/src/card/InfoCard.vue";
 interface CardList {
     header: string;
-    content: string;
     icon: string;
     numIcon: string;
     color: string;
@@ -10,35 +11,31 @@ interface CardList {
 const cardList = ref<Array<CardList>>([
     {
         header: "访问数",
-        content: "总访问数",
         icon: "ic:baseline-remove-red-eye",
         numIcon: "game-icons:histogram",
         color: "#d84c92",
-        num: 999,
+        num: 53000,
     },
     {
         header: "成交额",
-        content: "总成交额",
         icon: "fa6-solid:hand-holding-dollar",
         numIcon: "mingcute:receive-money-fill",
         color: "#7053bb",
-        num: 999,
+        num: 103430,
     },
     {
         header: "下载数",
-        content: "总下载数",
         icon: "material-symbols:cloud-download",
         numIcon: "ic:outline-download",
         color: "#5da8ff",
-        num: 999,
+        num: 3462,
     },
     {
         header: "成交数",
-        content: "总成交数",
         icon: "material-symbols:handshake",
         numIcon: "bi:r-circle-fill",
         color: "#fedc69",
-        num: 999,
+        num: 2400,
     },
 ]);
 const activities = [
@@ -135,9 +132,19 @@ const tableData = [
         <el-row>
             <el-col>
                 <div
-                    class="grid s_grid gap-[16px] grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 my-[12px]"
+                    class="grid grid-cols-1 mt-4 sm:grid-cols-2 s_grid lg:grid-cols-4"
                 >
-                    <el-card
+                    <template v-for="item in cardList" :key="item.header">
+                        <InfoCard
+                            :title="item.header"
+                            :value="item.num"
+                            :icon="item.icon"
+                            :prefix="item.numIcon"
+                            :background="item.color"
+                        />
+                    </template>
+
+                    <!-- <el-card
                         v-for="item in cardList"
                         :key="item.header"
                         shadow="hover"
@@ -173,15 +180,13 @@ const tableData = [
                                 </div>
                             </div>
                         </div>
-                    </el-card>
+                    </el-card> -->
                 </div>
             </el-col>
         </el-row>
         <el-row :gutter="12">
             <el-col :span="24" :lg="8">
-                <el-timeline
-                    class="p-[12px] bg-white rounded-2xl dark:bg-[#121212]"
-                >
+                <el-timeline class="p-4 bg-white rounded-2xl dark:bg-[#121212]">
                     <el-timeline-item
                         v-for="(activity, index) in activities"
                         :key="index"
@@ -246,7 +251,7 @@ const tableData = [
 .peichart,
 .sf-table {
     @media screen and (max-width: 1200px) {
-        margin-top: 12px;
+        margin-top: 1rem;
     }
 }
 

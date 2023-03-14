@@ -1,9 +1,11 @@
 <script setup lang="ts">
+const basetype = ["primary", "info", "warning", "danger", "success"];
 interface StatisticsCardProps {
     title: string;
     value?: string | number;
     percentage?: string;
     icon?: string | undefined;
+    prefix?: string | undefined;
     background: string;
 }
 withDefaults(defineProps<StatisticsCardProps>(), {
@@ -11,6 +13,7 @@ withDefaults(defineProps<StatisticsCardProps>(), {
     value: "$5300, 000",
     percentage: "",
     icon: "ri:money-cny-box-fill",
+    prefix: "",
     background: "primary",
 });
 </script>
@@ -25,14 +28,19 @@ withDefaults(defineProps<StatisticsCardProps>(), {
                     >
                         {{ title }}
                     </p>
-                    <h5 class="mb-0 font-bold text-[#344767] text-lg">
-                        {{ value }}
+                    <h5
+                        class="mb-0 font-bold text-[#344767] text-xl flex items-center gap-2"
+                    >
+                        <Iconify :width="18" :height="18" :icon="prefix" />
+                        <count-to :start-val="0" :end-val="value" />
                     </h5>
                 </div>
                 <div
                     class="rounded-md w-[48px] h-[48px] shadow text-center leading-[48px] bg-center"
                     :style="{
-                        backgroundColor: `var(--el-color-${background})`,
+                        backgroundColor: basetype.includes(background)
+                            ? `var(--el-color-${background})`
+                            : background,
                     }"
                 >
                     <Iconify
