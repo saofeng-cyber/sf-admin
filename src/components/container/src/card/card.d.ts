@@ -6,4 +6,15 @@ type cardcolor =
     | "warning"
     | "info"
     | "light"
-    | "dark";
+    | "dark"
+    | "blue"
+    | "indigo"
+    | "purple"
+    | "pink"
+    | "red"
+    | "orange"
+    | "yellow"
+    | "green"
+    | "teal"
+    | "cyan"
+    | "gray";

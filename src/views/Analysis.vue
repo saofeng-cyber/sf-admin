@@ -13,14 +13,14 @@ const cardList = ref<Array<CardList>>([
         header: "访问数",
         icon: "ic:baseline-remove-red-eye",
         numIcon: "game-icons:histogram",
-        color: "primary",
+        color: "blue",
         num: 53000,
     },
     {
         header: "成交额",
         icon: "fa6-solid:hand-holding-dollar",
         numIcon: "mingcute:receive-money-fill",
-        color: "success",
+        color: "green",
         num: 103430,
     },
     {
@@ -34,7 +34,7 @@ const cardList = ref<Array<CardList>>([
         header: "成交数",
         icon: "material-symbols:handshake",
         numIcon: "bi:r-circle-fill",
-        color: "warning",
+        color: "dark",
         num: 2400,
     },
 ]);
