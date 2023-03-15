@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ElBmap } from "vue-bmap-gl";
 
-const zoom = ref(1);
-const center = ref([101.59996, 31.197646]);
+const zoom = ref(12);
+const center = ref([117.4819445, 36.6776286]);
 const tilt = ref(60);
 const heading = ref(0);
 const mapRef = ref<any>();
