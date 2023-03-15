@@ -18,7 +18,7 @@ withDefaults(defineProps<StatisticsCardProps>(), {
 });
 </script>
 <template>
-    <div class="relative flex flex-col mb-4 min-w-[0] statistics-card">
+    <div class="relative flex flex-col mb-4 mx-4 min-w-[0] statistics-card">
         <div class="p-3 card-body">
             <div class="flex items-center justify-between">
                 <div class="w-4/5">

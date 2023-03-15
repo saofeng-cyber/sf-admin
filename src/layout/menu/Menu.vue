@@ -36,7 +36,7 @@ watch(
             <div v-if="isCollapse" class="title">
                 <!-- <IconifyVue :width="36" :height="36" icon="logos:vitejs" /> -->
                 <svg-icon :width="36" :height="36" name="logo" />
-                <span class="ml-[8px]">Sf-Admin</span>
+                <span class="ml-[8px]">SF-Admin</span>
             </div>
             <div v-else class="title">
                 <svg-icon :width="36" :height="36" name="logo" />

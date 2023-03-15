@@ -19,9 +19,9 @@ export default class TableApi {
      * 获取角色的路由
      * @param {string} role
      */
-    static async getDepartmentList() {
+    static async getBasicTable() {
         return tableServe.instance({
-            url: "/getDepartmentList",
+            url: "/getBasicTable",
             method: "get",
             data: {},
         });

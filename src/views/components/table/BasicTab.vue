@@ -1,13 +1,15 @@
 <script setup lang="ts">
+import TableApi from "@/requests/api/table";
 import { Refresh, Setting, Operation, Warning } from "@element-plus/icons-vue";
 import type { CheckboxValueType } from "element-plus";
 import sortable, { type SortableEvent } from "sortablejs";
 // import { cloneDeep } from "lodash-es";
 interface User {
     name: string;
-    address: string;
-    startTime: string;
-    endTime: string;
+    email: string;
+    city: string;
+    image: string;
+    datetime: string;
 }
 interface TabColumn {
     prop: string;
@@ -27,39 +29,42 @@ const tableColumns = ref<TabColumn[]>([
         width: 200,
         align: "center",
     },
+    // {
+    //     prop: "image",
+    //     label: "图片",
+    //     width: 240,
+    //     align: "center",
+    // },
     {
-        prop: "address",
-        label: "地址",
+        prop: "email",
+        label: "电子邮件",
         align: "center",
     },
     {
-        prop: "startTime",
-        label: "开始时间",
+        prop: "city",
+        label: "城市",
         width: 200,
         align: "center",
     },
     {
-        prop: "endTime",
-        label: "结束时间",
+        prop: "datetime",
+        label: "创建日期",
         width: 200,
         align: "center",
     },
 ]);
 const tableData = ref<User[]>([]);
 
-const loadTableData = () => {
+const loadTableData = async () => {
     loading.value = true;
-    for (let i = 0; i < 100; i++) {
-        tableData.value.push({
-            name: "Sao Feng " + " 000" + (i + 1),
-            address: "New York No. 1 Lake ParkNew York No. 1 Lake Park",
-            startTime: "2016-05-01",
-            endTime: "2016-05-02",
+    try {
+        await TableApi.getBasicTable().then((res) => {
+            tableData.value = res.data;
         });
-    }
-    setTimeout(() => {
         loading.value = false;
-    }, 1000);
+    } catch (error) {
+        loading.value = false;
+    }
 };
 const setStripe = () => {
     isStripe.value = !isStripe.value;
@@ -118,7 +123,6 @@ const handleSelectionChange = (val: User[]) => {
     multipleSelection.value = val;
 };
 const reloadTable = () => {
-    tableData.value = [];
     loadTableData();
 };
 
@@ -314,13 +318,31 @@ onMounted(() => {
                     v-if="checkOrder"
                 />
                 <el-table-column
+                    prop="image"
+                    label="头像"
+                    align="center"
+                    width="240"
+                >
+                    <template #default="scope">
+                        <el-image
+                            style="width: 100px; height: 100px"
+                            :src="scope.row.image"
+                            :zoom-rate="1.2"
+                            :preview-src-list="[scope.row.image]"
+                            :initial-index="4"
+                            preview-teleported
+                        />
+                    </template>
+                </el-table-column>
+                <el-table-column
                     v-for="(item, index) in tableColumns"
                     :key="index"
                     :prop="item.prop"
                     :label="item.label"
                     :width="item.width"
                     :align="item.align"
-                />
+                >
+                </el-table-column>
             </el-table>
         </div>
     </div>

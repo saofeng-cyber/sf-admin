@@ -21,7 +21,7 @@ withDefaults(defineProps<InfoCardProps>(), {
     <div class="relative flex flex-col items-center mx-4 mb-4 info-card">
         <div class="p-3 text-center">
             <div
-                class="rounded-md w-[48px] h-[48px] shadow text-center leading-[48px] bg-center"
+                class="rounded-md w-[48px] h-[48px] shadow-md text-center leading-[48px] bg-center"
                 :style="{
                     backgroundColor: basetype.includes(background)
                         ? `var(--el-color-${background})`
