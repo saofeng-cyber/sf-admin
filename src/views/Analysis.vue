@@ -5,7 +5,7 @@ interface CardList {
     header: string;
     icon: string;
     numIcon: string;
-    color: string;
+    color: cardcolor;
     num: number;
 }
 const cardList = ref<Array<CardList>>([
@@ -13,28 +13,28 @@ const cardList = ref<Array<CardList>>([
         header: "访问数",
         icon: "ic:baseline-remove-red-eye",
         numIcon: "game-icons:histogram",
-        color: "#d84c92",
+        color: "blue",
         num: 53000,
     },
     {
         header: "成交额",
         icon: "fa6-solid:hand-holding-dollar",
         numIcon: "mingcute:receive-money-fill",
-        color: "#7053bb",
+        color: "green",
         num: 103430,
     },
     {
         header: "下载数",
         icon: "material-symbols:cloud-download",
         numIcon: "ic:outline-download",
-        color: "#5da8ff",
+        color: "secondary",
         num: 3462,
     },
     {
         header: "成交数",
         icon: "material-symbols:handshake",
         numIcon: "bi:r-circle-fill",
-        color: "#fedc69",
+        color: "dark",
         num: 2400,
     },
 ]);

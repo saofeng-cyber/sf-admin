@@ -5,19 +5,43 @@
 @tailwind utilities;
 
 @layer base {
-  .theme-icon-bg {
-    @apply hover:bg-[var(--el-color-primary-light-9)] h-full;
-  }
+    .theme-icon-bg {
+        @apply hover:bg-[var(--el-color-primary-light-9)] h-full;
+    }
 }
 
 /* 灰色模式 */
 .html-grey {
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
 
 /* 色弱模式 */
 .html-weakness {
-  -webkit-filter: invert(80%);
-  filter: invert(80%);
+    -webkit-filter: invert(80%);
+    filter: invert(80%);
+}
+
+:root {
+    --sf-blue: #63b3ed;
+    --sf-indigo: #596cff;
+    --sf-purple: #6f42c1;
+    --sf-pink: #d63384;
+    --sf-red: #f56565;
+    --sf-orange: #fd7e14;
+    --sf-yellow: #fbd38d;
+    --sf-green: #81e6d9;
+    --sf-teal: #20c997;
+    --sf-cyan: #0dcaf0;
+    --sf-gray: #6c757d;
+    --sf-gray-dark: #343a40;
+    --sf-primary: #cb0c9f;
+    --sf-secondary: #8392ab;
+    --sf-success: #82d616;
+    --sf-info: #17c1e8;
+    --sf-warning: #fbcf33;
+    --sf-danger: #ea0606;
+    --sf-light: #e9ecef;
+    --sf-dark: #344767;
+    --sf-white: #fff;
 }
