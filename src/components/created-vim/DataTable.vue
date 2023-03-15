@@ -55,7 +55,7 @@ onMounted(() => {
 });
 </script>
 <template>
-    <el-card class="=mb-4">
+    <el-card class="mb-4">
         <template #header>
             <div class="flex justify-between card-header">
                 <h3>Datatables</h3>
