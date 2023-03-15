@@ -2,76 +2,72 @@
 // import MenuTabs from "@/components/MenuTabs.vue";
 import AsideBar from "./sider/AsideBar.vue";
 import HeaderBar from "./header/HeaderBar.vue";
-import SettingVue from "./setting/Setting.vue";
+import type { CSSProperties } from "vue";
+// import SettingVue from "./setting/Setting.vue";
 // import { settingStore } from "@/stores/modules/theme/SettingTheme";
 // const useSettingStore = settingStore();
 // const isShowTab = computed(() => useSettingStore.isShowTab);
 import { collapseStore } from "@/stores/Collapse";
 const useCollapseStore = collapseStore();
-const device = computed(() => useCollapseStore.device);
+const { isCollapse } = storeToRefs(useCollapseStore);
+const mainCss = computed((): CSSProperties => {
+    return {
+        marginLeft: isCollapse.value ? "15rem" : "5rem",
+    };
+});
 </script>
 
 <template>
-    <el-container
-        class="relative w-full h-full overflow-x-hidden admin-container bg-[var(--el-bg-color-page)]"
-    >
-        <el-aside
-            width="auto"
-            :class="[device ? 'el-aside-device' : 'el-aside-on']"
-        >
-            <el-scrollbar height="100%" class="bg-[var(--el-bg-color)]">
-                <aside-bar />
-            </el-scrollbar>
-        </el-aside>
-        <el-container class="content-container">
-            <setting-vue />
-            <el-header
-                class="p-0 menu_header"
-                :class="[device ? 'el-header-device' : 'el-header-on']"
-            >
-                <header-bar class="bg-[var(--el-bg-color)]" />
-            </el-header>
-            <!-- <div
-                v-show="isShowTab"
-                class="shadow bg-[var(--el-bg-color)]"
-                style="margin: 8px 16px 0 16px"
-            >
-                <MenuTabs />
-            </div> -->
-            <el-main class="menu_content">
-                <div :class="[device ? 'default-main-device' : 'default-main']">
-                    <RouterView v-slot="{ Component }">
-                        <template v-if="Component">
-                            <transition name="slide-x" appear mode="out-in">
-                                <!-- <KeepAlive>
+    <div class="common-layout">
+        <div
+            class="h-[300px] absolute w-full bg-[var(--sf-dark)] dark:bg-transparent"
+        ></div>
+        <aside class="sf-aside">
+            <AsideBar />
+        </aside>
+        <main class="sf-main" :style="mainCss">
+            <header class="sf-header px-2 py-1">
+                <HeaderBar />
+            </header>
+            <div class="sf-view py-2 px-4">
+                <RouterView v-slot="{ Component }">
+                    <template v-if="Component">
+                        <transition name="slide-x" appear mode="out-in">
+                            <!-- <KeepAlive>
                                         <Suspense>
                                             <component :is="Component" />
                                         </Suspense>
                                     </KeepAlive> -->
-                                <component :is="Component" />
-                            </transition>
-                        </template>
-                    </RouterView>
-                </div>
-                <el-backtop target=".menu_content" :right="50" :bottom="50">
-                    <Iconify icon="bi:rocket-fill" />
-                </el-backtop>
-            </el-main>
-
-            <!-- <el-footer
-                height="56px"
-                class="bg-[var(--el-bg-color)]"
-                :class="[device ? 'el-aside-device' : 'el-footer-on']"
-            >
-                <div
-                    class="flex items-center text-center justify-center w-full h-full text-[var(--el-color-primary)]"
-                >
-                    MIT Licensed | Copyright © 2023-present SaoFeng
-                </div>
-            </el-footer> -->
-        </el-container>
-    </el-container>
+                            <component :is="Component" />
+                        </transition>
+                    </template>
+                </RouterView>
+            </div>
+        </main>
+    </div>
 </template>
+<style scoped lang="scss">
+.common-layout {
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    background-color: var(--el-bg-color-page);
+    overflow-x: hidden;
+    .sf-aside {
+        position: fixed;
+        top: 1rem;
+        left: 0;
+        bottom: 1rem;
+        width: auto;
+    }
+    .sf-main {
+        position: relative;
+        height: 100%;
+        max-height: 100vh;
+        transition: all 0.3s var(--el-transition-function-ease-in-out-bezier);
+    }
+}
+</style>
 <style scoped lang="scss">
 .admin-container {
     .el-menu {

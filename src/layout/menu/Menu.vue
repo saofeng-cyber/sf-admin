@@ -26,44 +26,28 @@ watch(
     <el-menu
         mode="vertical"
         :collapse="!isCollapse"
-        class="h-full menu_aside el-menu-vertical-demo"
+        class="h-full menu_aside el-menu-vertical-demo border-none ml-4 rounded-[2rem]"
         :default-active="path"
         unique-opened
         collapse-transition
         router
     >
         <RouterLink v-show="isShowLogo" to="/" class="no-underline">
-            <div v-if="isCollapse" class="title">
-                <!-- <IconifyVue :width="36" :height="36" icon="logos:vitejs" /> -->
-                <svg-icon :width="36" :height="36" name="logo" />
-                <span class="ml-[8px]">SF-Admin</span>
+            <div
+                v-if="isCollapse"
+                class="flex justify-center items-center py-2 px-1 w-full whitespace-nowrap"
+            >
+                <IconifyVue :width="36" :height="36" icon="logos:vitejs" />
+                <span
+                    class="ml-2 font-bold text-xl text-[#344767] dark:text-white"
+                    >SF Admin</span
+                >
             </div>
-            <div v-else class="title">
-                <svg-icon :width="36" :height="36" name="logo" />
+            <div v-else class="text-center py-2 px-1 w-full">
+                <IconifyVue :width="36" :height="36" icon="logos:vitejs" />
             </div>
         </RouterLink>
         <menu-item :route-list="routerList" />
     </el-menu>
 </template>
-<style lang="scss">
-.title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    background-image: linear-gradient(
-        120deg,
-        rgb(0, 128, 255),
-        rgb(255, 0, 238)
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    font-weight: bold;
-    font-size: 24px;
-    white-space: nowrap;
-    user-select: none;
-    height: var(--el-menu-item-height);
-    cursor: pointer;
-}
-</style>
+<style lang="scss"></style>

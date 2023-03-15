@@ -119,12 +119,12 @@ const tableData = [
     <div class="w-full h-full">
         <el-row :gutter="12">
             <el-col :lg="18" :span="24" class="h-[360px]">
-                <div class="h-full bg-white rounded-2xl dark:bg-[#121212]">
+                <div class="h-full bg-white rounded-2xl py-3 dark:bg-[#121212]">
                     <LineChart />
                 </div>
             </el-col>
             <el-col :lg="6" :span="24" class="peichart h-[360px]">
-                <div class="h-full bg-white rounded-2xl dark:bg-[#121212]">
+                <div class="h-full bg-white rounded-2xl py-3 dark:bg-[#121212]">
                     <PieChart />
                 </div>
             </el-col>

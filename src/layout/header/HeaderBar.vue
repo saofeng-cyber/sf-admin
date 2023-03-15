@@ -27,8 +27,8 @@ const expand = () => {
 <template>
     <div class="flex items-center justify-between h-full w-full">
         <div class="flex items-center h-full">
-            <el-icon
-                class="cursor-pointer text-[24px] w-[42px] theme-icon-bg"
+            <span
+                class="cursor-pointer text-[24px] w-[42px] text-white"
                 @click="expand"
             >
                 <Iconify
@@ -43,7 +43,7 @@ const expand = () => {
                     :width="24"
                     :height="24"
                 />
-            </el-icon>
+            </span>
             <!-- <el-breadcrumb class="px-3 max-sm:hidden" separator="/">
                 <el-breadcrumb-item :to="{ path: '/' }">
                     首页
