@@ -44,6 +44,9 @@ const mainCss = computed((): CSSProperties => {
                 </RouterView>
             </div>
         </main>
+        <el-backtop target=".common-layout" :right="50" :bottom="50">
+            <Iconify icon="bi:rocket-fill" />
+        </el-backtop>
     </div>
 </template>
 <style scoped lang="scss">
