@@ -35,7 +35,7 @@ watch(
         <RouterLink v-show="isShowLogo" to="/" class="no-underline">
             <div
                 v-if="isCollapse"
-                class="flex justify-center items-center py-2 px-1 w-full whitespace-nowrap"
+                class="flex items-center justify-center w-full px-1 py-2 whitespace-nowrap"
             >
                 <IconifyVue :width="36" :height="36" icon="logos:vitejs" />
                 <span
@@ -43,11 +43,15 @@ watch(
                     >SF Admin</span
                 >
             </div>
-            <div v-else class="text-center py-2 px-1 w-full">
+            <div v-else class="w-full px-1 py-2 text-center">
                 <IconifyVue :width="36" :height="36" icon="logos:vitejs" />
             </div>
         </RouterLink>
         <menu-item :route-list="routerList" />
     </el-menu>
 </template>
-<style lang="scss"></style>
+<style lang="scss">
+.menu_aside::-webkit-scrollbar {
+    width: 0px;
+}
+</style>

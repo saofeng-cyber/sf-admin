@@ -12,7 +12,7 @@ const useCollapseStore = collapseStore();
 const { isCollapse } = storeToRefs(useCollapseStore);
 const mainCss = computed((): CSSProperties => {
     return {
-        marginLeft: isCollapse.value ? "15rem" : "5rem",
+        marginLeft: isCollapse.value ? "16.8rem" : "4.8rem",
     };
 });
 </script>
@@ -20,16 +20,16 @@ const mainCss = computed((): CSSProperties => {
 <template>
     <div class="common-layout">
         <div
-            class="h-[300px] absolute w-full bg-[var(--sf-dark)] dark:bg-transparent"
+            class="h-[320px] absolute w-full bg-[var(--sf-dark)] dark:bg-transparent"
         ></div>
         <aside class="sf-aside">
             <AsideBar />
         </aside>
         <main class="sf-main" :style="mainCss">
-            <header class="sf-header px-2 py-1">
+            <header class="px-2 py-1 sf-header">
                 <HeaderBar />
             </header>
-            <div class="sf-view py-2 px-4">
+            <div class="px-4 py-2 sf-view">
                 <RouterView v-slot="{ Component }">
                     <template v-if="Component">
                         <transition name="slide-x" appear mode="out-in">

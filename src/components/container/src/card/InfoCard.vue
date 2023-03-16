@@ -37,7 +37,9 @@ withDefaults(defineProps<InfoCardProps>(), {
             <h3>{{ title }}</h3>
             <span class="text-xs text-[#525F7F]">{{ description }}</span>
             <hr class="my-3 text-[#dcdfe6]" />
-            <h5 class="flex items-center gap-2 mb-0 text-xl font-bold">
+            <h5
+                class="flex items-center justify-center gap-3 text-xl font-bold"
+            >
                 <Iconify :width="18" :height="18" :icon="prefix" />
                 <count-to :start-val="0" :end-val="value" />
             </h5>

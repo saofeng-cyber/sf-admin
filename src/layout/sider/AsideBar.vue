@@ -37,7 +37,7 @@ useResizeObserver(document.body, (entries) => {
     overflow-x: hidden;
 }
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 220px;
+    width: 16rem;
 }
 
 .list-enter-active,
