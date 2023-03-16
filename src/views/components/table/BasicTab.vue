@@ -300,7 +300,6 @@ onMounted(() => {
                 :size="isSize"
                 :stripe="isStripe"
                 :border="isBorder"
-                :max-height="715"
                 @selection-change="handleSelectionChange"
                 style="width: 100%"
                 v-loading="loading"
@@ -347,4 +346,8 @@ onMounted(() => {
         </div>
     </div>
 </template>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.base-tab {
+    height: calc(100vh - 75px);
+}
+</style>
