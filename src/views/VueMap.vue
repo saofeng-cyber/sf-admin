@@ -16,7 +16,7 @@ onMounted(() => {
 });
 </script>
 <template>
-    <div style="height: calc(100vh - 64px)">
+    <div style="height: calc(100vh - 75px)">
         <div class="w-full h-full">
             <el-bmap
                 ref="mapRef"

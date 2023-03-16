@@ -7,7 +7,7 @@ const vditorRef = ref<HTMLElement>();
 const renderVditor = () => {
     if (!vditorRef.value) return;
     vditor.value = new Vditor(vditorRef.value, {
-        minHeight: 400,
+        height: 750,
         mode: "sv",
         icon: "ant",
         toolbarConfig: {
@@ -38,8 +38,8 @@ onMounted(() => {
 });
 </script>
 <template>
-    <div class="mark rounded-2xl h-full">
-        <div class="text-[20px] font-bold mb-3">Markdown插件</div>
+    <div class="h-full mark rounded-2xl">
+        <div class="text-[20px] font-bold mb-3 text-white">Markdown插件</div>
         <div id="vditor" ref="vditorRef"></div>
 
         <div class="mt-[12px] flex items-center w-full">

@@ -26,7 +26,7 @@ const mainCss = computed((): CSSProperties => {
             <AsideBar />
         </aside>
         <main class="sf-main" :style="mainCss">
-            <header class="px-2 py-1 sf-header">
+            <header class="px-[12px] py-[8px] sf-header">
                 <HeaderBar />
             </header>
             <div class="px-4 py-2 sf-view">

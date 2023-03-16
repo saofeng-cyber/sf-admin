@@ -31,11 +31,13 @@ const handleCreated = (editor: any) => {
 const mode = ref("default"); // 'simple'
 </script>
 <template>
-    <div class="editor flex flex-col rounded-2xl">
-        <div class="font-bold text-[20px] mb-[10px]">富文本编辑器</div>
-        <div class="editor flex-1 z-50">
+    <div class="flex flex-col editor rounded-2xl">
+        <div class="font-bold text-[20px] mb-[10px] text-white">
+            富文本编辑器
+        </div>
+        <div class="z-50 flex-1 editor">
             <Toolbar
-                class="border-solid border border-gray-300"
+                class="border border-gray-300 border-solid"
                 :editor="editorRef"
                 :default-config="toolbarConfig"
                 :mode="mode"
