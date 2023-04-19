@@ -1,0 +1,1 @@
+import{_ as s}from"./WebIframe.vue_vue_type_script_setup_true_lang-c1b753cd.js";import{a1 as t,f as e,s as r,y as a}from"./index-f20dec1b.js";const n={style:{height:"calc(100vh - 75px)"}};const o=t({},[["render",function(t,o){const u=s;return e(),r("div",n,[a(u,{url:"https://cn.vuejs.org/"})])}]]);export{o as default};
