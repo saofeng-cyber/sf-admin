@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import { useResizeObserver } from "@vueuse/core";
-import { collapseStore } from "@/stores/Collapse";
 import MenuVue from "../menu/Menu.vue";
+import { useAppSetting } from "@/hooks/useAppSetting";
 
-const useCollapseStore = collapseStore();
-const { device, isCollapse, deviceWidth } = storeToRefs(useCollapseStore);
+const { device, isCollapse, deviceWidth, settingDevice } = useAppSetting();
 useResizeObserver(document.body, (entries) => {
     const entry = entries[0];
     const { width } = entry.contentRect;
     if (width > 0 && width < deviceWidth.value) {
-        useCollapseStore.settingDevice(true);
+        settingDevice(true);
     } else {
-        useCollapseStore.settingDevice(false);
+        settingDevice(false);
     }
 });
 </script>
@@ -23,7 +22,7 @@ useResizeObserver(document.body, (entries) => {
         :open-delay="100"
         :lock-scroll="true"
         :close-delay="100"
-        size="220"
+        size="16rem"
         :modal="true"
         direction="ltr"
         :with-header="false"
@@ -33,13 +32,6 @@ useResizeObserver(document.body, (entries) => {
     <menu-vue v-else />
 </template>
 <style scoped lang="scss">
-.el-menu-vertical-demo {
-    overflow-x: hidden;
-}
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 16rem;
-}
-
 .list-enter-active,
 .list-leave-active {
     transition: all 0.5s ease-in;

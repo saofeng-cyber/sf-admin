@@ -44,11 +44,11 @@ const lineOptions = ref<ECOption>({
     ],
     series: [
         {
-            color: "#8e9dff",
+            color: "rgb(203,12,159)",
             name: "下载量",
             type: "line",
             smooth: true,
-            stack: "Total",
+            // stack: "Total",
             areaStyle: {
                 color: {
                     type: "linear",
@@ -59,26 +59,22 @@ const lineOptions = ref<ECOption>({
                     colorStops: [
                         {
                             offset: 0.25,
-                            color: "#8e9dff",
+                            color: "rgb(203,12,159, 0.5)",
                         },
                         {
                             offset: 1,
-                            color: "#fff",
+                            color: "rgb(203,12,159,0.01)",
                         },
                     ],
                 },
-            },
-            emphasis: {
-                focus: "series",
             },
             data: [4623, 6145, 6268, 6411, 1890, 4251, 2978, 3880, 3606, 4311],
         },
         {
-            color: "#26deca",
+            color: "rgb(67,63,117)",
             name: "注册数",
             type: "line",
             smooth: true,
-            stack: "Total",
             areaStyle: {
                 color: {
                     type: "linear",
@@ -89,19 +85,16 @@ const lineOptions = ref<ECOption>({
                     colorStops: [
                         {
                             offset: 0.25,
-                            color: "#26deca",
+                            color: "rgb(67, 63, 117, 0.5)",
                         },
                         {
                             offset: 1,
-                            color: "#fff",
+                            color: "rgb(67, 63, 117, 0.01)",
                         },
                     ],
                 },
             },
-            emphasis: {
-                focus: "series",
-            },
-            data: [2208, 2016, 2916, 4512, 8281, 2008, 1963, 2367, 2956, 678],
+            data: [4311, 3200, 6268, 7000, 7889, 1000, 7800, 1600, 6700, 5890],
         },
     ],
 });

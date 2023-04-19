@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import pkg from "../../package.json";
-const { dependencies, devDependencies, version } = readonly(pkg);
+const { dependencies, devDependencies, version } = readonly<any>(pkg);
 interface Dependencies {
     dependency: string;
     version: string;

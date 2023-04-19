@@ -5,6 +5,13 @@ const permission = {
     },
 };
 
+const injectNote = {
+    mounted: (el: HTMLElement, binding: DirectiveBinding<any>) => {
+        return binding.value * 1000;
+    },
+};
+
 export const useDirectives = (app: App) => {
     app.directive("permission", permission.mounted);
+    app.directive("injectNote", injectNote.mounted);
 };

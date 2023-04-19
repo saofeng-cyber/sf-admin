@@ -14,7 +14,7 @@ const pieOptions = ref<ECOption>({
     },
     series: [
         {
-            color: ["#5da8ff", "#8e9dff", "#fedc69", "#26deca"],
+            color: ["#8e9dff", "#fedc69", "#f64e38", "#5da8ff"],
             name: "时间安排",
             type: "pie",
             radius: ["45%", "75%"],

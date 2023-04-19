@@ -19,7 +19,7 @@ interface PresistType<S, Store> {
     resetToState?: ((store: Store) => void) | boolean;
 }
 declare module "pinia" {
-    export interface DefineStoreOptionsBase<S, Store> {
+    export interface DefineStoreOptionsBase<S extends StateTree, Store> {
         presist?: Partial<PresistType<S, Store>>;
     }
 }
@@ -29,7 +29,7 @@ export const setItem = (key: string, value: any, type: Storage) => {
 };
 export const getItem = (key: string, type: Storage) => {
     return (window as any)[type + "Storage"].getItem(key)
-        ? JSON.parse(localStorage.getItem(key) as string)
+        ? JSON.parse(localStorage.getItem(key) || "")
         : {};
 };
 

@@ -26,7 +26,7 @@ const transformRoute = (item: AuthRoute.Route) => {
                 }
             },
         };
-        actions[item.component as AuthRoute.RouteComponentType]();
+        actions[item.component as keyof ComponentType]();
     }
     if (isSingle(item)) {
         if (item.component === "self") {

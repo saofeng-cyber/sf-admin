@@ -1,10 +1,9 @@
 <script setup lang="ts">
+import { useAppSetting } from "@/hooks/useAppSetting";
 import { Search } from "@element-plus/icons-vue";
-import { collapseStore } from "@/stores/Collapse";
 const dialogVisible = ref<boolean>(false);
 const searchValue = ref<string>("骚风");
-const useCollapseStore = collapseStore();
-const { device } = storeToRefs(useCollapseStore);
+const { device } = useAppSetting();
 const searchRef = ref();
 const openDialogVisible = () => {
     dialogVisible.value = true;

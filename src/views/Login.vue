@@ -17,7 +17,7 @@ const changeTheme = (value: string | number | boolean) => {
 const formRef = ref<FormInstance>();
 
 const dynamicValidateForm = reactive<Record<string, any>>({
-    username: "admin",
+    username: "super",
     password: "saofeng666",
 });
 

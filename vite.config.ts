@@ -84,7 +84,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
                 output: {
                     chunkFileNames: "js/[name]-[hash].js",
                     entryFileNames: "js/[name]-[hash].js",
-                    assetFileNames: "images/[name]-[hash].[ext]",
+                    assetFileNames: "css/[name]-[hash].[ext]",
                 },
             },
             // cssTarget: "chrome61",

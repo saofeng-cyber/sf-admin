@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useAppSetting } from "@/hooks/useAppSetting";
 interface InfoCardProps {
     title: string;
     value?: string | number;
@@ -15,9 +16,13 @@ withDefaults(defineProps<InfoCardProps>(), {
     prefix: "",
     background: "primary",
 });
+const { device } = useAppSetting();
 </script>
 <template>
-    <div class="relative flex flex-col items-center mx-4 mb-4 info-card">
+    <div
+        class="relative flex flex-col items-center mb-4 info-card"
+        :class="[device ? 'mx-0' : 'mx-2']"
+    >
         <div class="p-3 text-center">
             <div
                 class="rounded-md w-[48px] h-[48px] shadow-md text-center leading-[48px] bg-center"

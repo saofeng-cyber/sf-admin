@@ -24,6 +24,7 @@ const permissionOptions = ref<Array<PermissionOptions>>([
 const permissionChange = (val: string) => {
     useRouterModule.setRole(val as AuthRoute.RoleType);
     useRouterModule.getRouterList(val as AuthRoute.RoleType);
+    // window.location.reload();
 };
 </script>
 <template>

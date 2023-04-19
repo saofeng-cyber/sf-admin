@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { Moon, Sunny } from "@element-plus/icons-vue";
 import { toggleDark, isDark } from "@/utils/themes/dark";
-import { collapseStore } from "@/stores/Collapse";
 import { useRoute } from "vue-router";
 import IconifyVue from "@/components/Iconify.vue";
 import { settingStore } from "@/stores/modules/theme/SettingTheme";
+import { useAppSetting } from "@/hooks/useAppSetting";
 const drawer = ref<boolean>(false);
 const useSettingStore = settingStore();
-const useCollapseStore = collapseStore();
-const { device } = storeToRefs(useCollapseStore);
+const { device } = useAppSetting();
 const {
     isShowLogo,
     isShowTab,
@@ -119,7 +118,7 @@ onBeforeMount(() => {
 </script>
 <template>
     <div
-        class="absolute right-[12px] top-2/4 -translate-y-[50%] rounded cursor-pointer w-[36px] h-[36px] z-[1000] flex justify-center items-center transition-[scale]"
+        class="fixed right-[30px] bottom-[30px] rounded-[50%] cursor-pointer w-[52px] h-[52px] z-[1000] flex justify-center items-center shadow-lg"
         style="background-color: var(--el-color-primary)"
         @click="openSetting"
     >

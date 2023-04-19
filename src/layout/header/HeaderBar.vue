@@ -1,12 +1,11 @@
 <script setup lang="ts">
-// import type { RouteLocationMatched } from "vue-router";
-import { collapseStore } from "@/stores/Collapse";
+import { useAppSetting } from "@/hooks/useAppSetting";
 
-const useCollapseStore = collapseStore();
-const { isCollapse } = storeToRefs(useCollapseStore);
+// import type { RouteLocationMatched } from "vue-router";
+const { modifyCollapse, isCollapse } = useAppSetting();
 const expand = () => {
     console.log(isCollapse.value);
-    useCollapseStore.modifyCollapse();
+    modifyCollapse();
 };
 // const useroute = useRoute();
 // const breadcrumbList = ref<Array<RouteLocationMatched>>([]);
@@ -25,7 +24,7 @@ const expand = () => {
 // const searchValue = ref<string>("");
 </script>
 <template>
-    <div class="flex items-center justify-between h-full w-full">
+    <div class="flex items-center justify-between w-full h-full">
         <div class="flex items-center h-full">
             <span
                 class="cursor-pointer text-[24px] w-[42px] text-white"

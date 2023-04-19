@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { collapseStore } from "@/stores/Collapse";
 import { settingStore } from "@/stores/modules/theme/SettingTheme";
 import MenuItem from "./MenuItem.vue";
 import { RouterModule } from "@/stores/modules/route/RouterModel";
+import { useAppSetting } from "@/hooks/useAppSetting";
 const useRouterModule = RouterModule();
 const { routerList } = storeToRefs(useRouterModule);
 const useSettingStore = settingStore();
 const isShowLogo = computed(() => useSettingStore.isShowLogo);
-const useCollapseStore = collapseStore();
-const isCollapse = computed(() => useCollapseStore.isCollapse);
+const { isCollapse } = useAppSetting();
 const useroute = useRoute();
 const path = ref<string>("");
 watch(
@@ -51,6 +50,12 @@ watch(
     </el-menu>
 </template>
 <style lang="scss">
+.el-menu-vertical-demo {
+    overflow-x: hidden;
+}
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 15rem;
+}
 .menu_aside::-webkit-scrollbar {
     width: 0px;
 }

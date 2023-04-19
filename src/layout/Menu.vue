@@ -1,24 +1,20 @@
 <script setup lang="ts">
-// import MenuTabs from "@/components/MenuTabs.vue";
+import Setting from "./setting/Setting.vue";
 import AsideBar from "./sider/AsideBar.vue";
 import HeaderBar from "./header/HeaderBar.vue";
 import type { CSSProperties } from "vue";
-// import SettingVue from "./setting/Setting.vue";
-// import { settingStore } from "@/stores/modules/theme/SettingTheme";
-// const useSettingStore = settingStore();
-// const isShowTab = computed(() => useSettingStore.isShowTab);
-import { collapseStore } from "@/stores/Collapse";
-const useCollapseStore = collapseStore();
-const { isCollapse } = storeToRefs(useCollapseStore);
+import { useAppSetting } from "@/hooks/useAppSetting";
+const { isCollapse, device } = useAppSetting();
 const mainCss = computed((): CSSProperties => {
     return {
-        marginLeft: isCollapse.value ? "16.8rem" : "4.8rem",
+        marginLeft: device.value ? "0" : isCollapse.value ? "16rem" : "4.8rem",
     };
 });
 </script>
 
 <template>
     <div class="common-layout">
+        <Setting />
         <div
             class="h-[320px] absolute w-full bg-[var(--sf-dark)] dark:bg-transparent"
         ></div>
@@ -33,18 +29,13 @@ const mainCss = computed((): CSSProperties => {
                 <RouterView v-slot="{ Component }">
                     <template v-if="Component">
                         <transition name="slide-x" appear mode="out-in">
-                            <!-- <KeepAlive>
-                                        <Suspense>
-                                            <component :is="Component" />
-                                        </Suspense>
-                                    </KeepAlive> -->
                             <component :is="Component" />
                         </transition>
                     </template>
                 </RouterView>
             </div>
         </main>
-        <el-backtop target=".common-layout" :right="50" :bottom="50">
+        <el-backtop target=".common-layout" :right="38" :bottom="120">
             <Iconify icon="bi:rocket-fill" />
         </el-backtop>
     </div>
@@ -53,11 +44,12 @@ const mainCss = computed((): CSSProperties => {
 .common-layout {
     position: relative;
     height: 100%;
-    overflow-y: auto;
+    // overflow-y: auto;
     background-color: var(--el-bg-color-page);
     overflow-x: hidden;
     .sf-aside {
         position: fixed;
+        z-index: 10;
         top: 1rem;
         left: 0;
         bottom: 1rem;
@@ -66,7 +58,6 @@ const mainCss = computed((): CSSProperties => {
     .sf-main {
         position: relative;
         height: 100%;
-        max-height: 100vh;
         transition: all 0.3s var(--el-transition-function-ease-in-out-bezier);
     }
 }
