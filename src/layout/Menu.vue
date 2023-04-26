@@ -15,9 +15,9 @@ const mainCss = computed((): CSSProperties => {
 <template>
     <div class="common-layout">
         <Setting />
-        <div
+        <!-- <div
             class="h-[320px] absolute w-full bg-[var(--sf-dark)] dark:bg-transparent"
-        ></div>
+        ></div> -->
         <aside class="sf-aside">
             <AsideBar />
         </aside>

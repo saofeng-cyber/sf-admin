@@ -21,6 +21,13 @@ html {
   height: 100%;
   box-sizing: border-box;
 }
+// 第三方字体包，注意是否可以商用
+/* @font-face {
+  font-family: "sf-custom";
+  src: url("./font/iconfont.ttf");
+  font-weight: normal;
+  font-style: normal;
+} */
 
 body {
   margin: 0;
@@ -30,8 +37,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizelegibility;
-  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
-    "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  font-family: "Quicksand";
 }
 
 hr {

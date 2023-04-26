@@ -26,10 +26,7 @@ const expand = () => {
 <template>
     <div class="flex items-center justify-between w-full h-full">
         <div class="flex items-center h-full">
-            <span
-                class="cursor-pointer text-[24px] w-[42px] text-white"
-                @click="expand"
-            >
+            <span class="cursor-pointer text-[24px] w-[42px]" @click="expand">
                 <Iconify
                     icon="line-md:menu-unfold-right"
                     v-if="!isCollapse"

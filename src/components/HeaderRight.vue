@@ -53,20 +53,20 @@ onMounted(() => {
     </el-tooltip>
     <el-tooltip content="Github" placement="bottom-end">
         <el-icon
-            class="w-[32px] mr-[12px] text-center cursor-pointer text-white"
+            class="w-[32px] mr-[12px] text-center cursor-pointer"
             @click.prevent="togithub"
         >
             <span class="text-2xl iconfont icon-github" />
         </el-icon>
     </el-tooltip>
     <el-dropdown
-        class="flex items-center justify-center w-[32px] mr-[12px] cursor-pointer text-white"
+        class="flex items-center justify-center w-[32px] mr-[12px] cursor-pointer"
         @command="toggleLanguage"
         trigger="click"
         teleported
         hide-on-click
     >
-        <el-icon class="w-[32px] h-full text-center cursor-pointer text-white">
+        <el-icon class="w-[32px] h-full text-center cursor-pointer">
             <Iconify icon="clarity:language-solid" :width="20" :height="20" />
         </el-icon>
         <template #dropdown>
@@ -92,7 +92,7 @@ onMounted(() => {
 
     <el-tooltip content="全屏" placement="bottom-end">
         <el-icon
-            class="w-[32px] h-full mr-[12px] text-center cursor-pointer text-white"
+            class="w-[32px] h-full mr-[12px] text-center cursor-pointer"
             @click.prevent="fullScreen"
         >
             <span
@@ -104,16 +104,14 @@ onMounted(() => {
     </el-tooltip>
     <el-tooltip content="主题模式" placement="bottom-end">
         <el-icon
-            class="w-[32px] mr-[12px] text-center cursor-pointer text-white"
+            class="w-[32px] mr-[12px] text-center cursor-pointer"
             @click.prevent="toggleDark()"
         >
             <span class="text-2xl iconfont icon-taiyang" />
         </el-icon>
     </el-tooltip>
     <el-tooltip content="消息通知" placement="bottom-end">
-        <el-icon
-            class="w-[32px] mr-[12px] text-center cursor-pointer text-white"
-        >
+        <el-icon class="w-[32px] mr-[12px] text-center cursor-pointer">
             <el-badge is-dot>
                 <el-popover
                     placement="top-start"
@@ -133,7 +131,7 @@ onMounted(() => {
         </el-icon>
     </el-tooltip>
     <el-dropdown
-        class="flex items-center justify-center w-[48px] cursor-pointer text-white"
+        class="flex items-center justify-center w-[48px] cursor-pointer"
         @command="handleCommand"
     >
         <span class="el-dropdown-link">

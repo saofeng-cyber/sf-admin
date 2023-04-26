@@ -68,11 +68,11 @@ export default defineConfig(({ mode }: ConfigEnv) => {
             open: false,
             cors: true,
         },
-        envPrefix: ["VITE_", "TAURI_"],
+        envPrefix: ["VITE_"],
         build: {
             outDir: "my-admin",
             target: "es2015",
-            // assetsDir: "./static",
+            assetsDir: "./",
             minify: "terser",
             assetsInlineLimit: 4096,
             sourcemap: false,
@@ -93,7 +93,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
             terserOptions: {
                 compress: {},
                 output: {
-                    comments: true,
+                    comments: false,
                 },
             },
         },
